@@ -1,0 +1,15 @@
+/* Стили значка, который рисует CounterPlugin. Плагин сам CSS не подключает —
+   стили держатся отдельно, как у остальных плагинов. */
+.counter-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  min-width: 24px;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: #e11d48;
+  color: #fff;
+  font: 700 12px/18px system-ui, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}

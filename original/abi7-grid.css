@@ -1,0 +1,112 @@
+/**
+ * @ Author: Alexander Momot
+ * @ Create Time: 2023-01-16 08:06:09
+ * @ Modified by: Your name
+ * @ Modified time: 2024-01-30 11:33:43
+ * @ Description: Abi7Grid
+ */
+
+ .abi7-grid {
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
+	margin: 0;
+	padding: 0;
+	height: var(--grid-height, 100%);
+	max-height: var(--grid-max-height, none);
+	outline: none;
+	width: 100%;
+}
+
+.abi7-grid * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.abi7-grid-container {
+	--helper-top: 0;
+	--helper-left: 0;
+	--helper-height: 0;
+	--helper-width: 0;
+	--helper-opacity: 0;
+	--helper-color: var(--grid-sort-start-color, lightblue);
+	display: block;
+	position: relative;
+	will-change: scroll-position;
+	height: auto;
+	width: 100%;
+}
+
+.abi7-grid.abi7-grid-sortable .abi7-grid-item * {
+	user-drag: none;
+	-webkit-user-drag: none;
+}
+
+.abi7-grid-helper::before {
+	content: '';
+	background-color: var(--helper-color);
+	display: block;
+	position: absolute;
+	pointer-events: none;
+	top: var(--helper-top);
+	left: var(--helper-left);
+	height: var(--helper-height);
+	width: var(--helper-width);
+	opacity: var(--helper-opacity);
+	transition: opacity 0.4s;
+}
+
+.abi7-grid-container>* {
+	list-style-type: none;
+	position: absolute;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	transform: translateY(-1px);
+}
+
+.abi7-grid-noscrollbar {
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none !important;
+	scrollbar-width: none;
+}
+
+.abi7-grid-noscrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.abi7-grid-trans {
+	transition-property: transform;
+	transition-timing-function: var(--grid-animation-function, ease-in-out);
+	transition-duration: var(--grid-animation-duration, 400ms);
+}
+
+.abi7-grid-sort-helper.on {
+	opacity: 1;
+}
+
+.abi7-grid-item:empty {
+	pointer-events: none;
+	display: none;
+}
+
+.abi7-grid-item.abi7-grid-sortable {
+	-webkit-animation: pulse 0.3s;
+	animation: pulse 0.3s;
+	box-shadow: 0 0 0 2em transparent;
+	opacity: 0.8;
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 var(--grid-sort-start-color, lightblue);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 var(--grid-sort-start-color, lightblue);
+	}
+}

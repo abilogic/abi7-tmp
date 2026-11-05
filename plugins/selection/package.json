@@ -1,0 +1,11 @@
+{
+  "name": "@abi7/selection",
+  "version": "1.0.0",
+  "description": "Selection plugin for ABI7 Grid",
+  "type": "module",
+  "main": "selection.js",
+  "style": "selection.css",
+  "files": ["selection.js", "selection.css", "README.md"],
+  "peerDependencies": { "abi7-grid": "^1.0.0" },
+  "license": "MIT"
+}

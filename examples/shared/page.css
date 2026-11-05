@@ -1,0 +1,30 @@
+/* Базовые стили демонстрационных страниц (не часть библиотеки). */
+:root {
+  --bg: #ffffff; --fg: #1f2937; --muted: #6b7280; --border: #d1d5db; --btn: #f3f4f6; --btn-hover: #e5e7eb; --accent: #4c8bf5; --panel: #f9fafb;
+}
+[data-theme="dark"] {
+  --bg: #0f1218; --fg: #e5e7eb; --muted: #9ca3af; --border: #2b3240; --btn: #1b212c; --btn-hover: #262e3c; --accent: #6ea0ff; --panel: #151a23;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 12px; background: var(--bg); color: var(--fg); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 10px; }
+.toolbar label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
+.toolbar output { min-width: 2.2em; color: var(--fg); font-variant-numeric: tabular-nums; }
+button, select, input[type="number"] { font: inherit; color: var(--fg); background: var(--btn); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; }
+button { cursor: pointer; }
+button:hover { background: var(--btn-hover); }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+input[type="range"] { accent-color: var(--accent); width: 110px; }
+input[type="number"] { width: 90px; }
+.demo-grid { height: 380px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); padding: 0; }
+.demo-grid.tall { height: 460px; }
+.demo-grid.strip { height: 240px; }
+.stats, .log, pre.out { margin: 10px 0 0; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--muted); font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; }
+.stats b { color: var(--fg); font-weight: 600; }
+.log { max-height: 110px; overflow: auto; }
+.hint { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.row { display: flex; gap: 12px; }
+.row > .col { flex: 1; min-width: 0; }
+.col h4 { margin: 0 0 6px; font-size: 13px; color: var(--muted); font-weight: 600; }
+@media (max-width: 560px) { .row { flex-direction: column; } }

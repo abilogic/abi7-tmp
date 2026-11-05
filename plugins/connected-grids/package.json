@@ -1,0 +1,11 @@
+{
+  "name": "@abi7/connected-grids",
+  "version": "1.0.0",
+  "description": "Drag items between ABI7 Grid instances",
+  "type": "module",
+  "main": "connected-grids.js",
+  "style": "connected-grids.css",
+  "files": ["connected-grids.js", "connected-grids.css", "README.md"],
+  "peerDependencies": { "abi7-grid": "^1.0.0" },
+  "license": "MIT"
+}

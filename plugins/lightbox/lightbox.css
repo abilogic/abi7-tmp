@@ -1,0 +1,85 @@
+/* @abi7/lightbox — стили просмотрщика. Все классы начинаются с .abi7-lb */
+.abi7-lb-lock { overflow: hidden; }
+
+.abi7-lb {
+  --abi7-lb-duration: 220ms;
+  position: fixed;
+  inset: 0;
+  z-index: 2147482000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 10, 14, 0.9);
+  opacity: 0;
+  transition: opacity var(--abi7-lb-duration) ease;
+  touch-action: pan-y pinch-zoom;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.abi7-lb.abi7-lb-open { opacity: 1; }
+
+.abi7-lb-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+  max-height: 100vh;
+  padding: 56px 64px 48px;
+  box-sizing: border-box;
+}
+
+.abi7-lb-img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 150px);
+  object-fit: contain;
+  border-radius: 4px;
+  transform: scale(0.97);
+  transition: transform var(--abi7-lb-duration) ease, opacity var(--abi7-lb-duration) ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.abi7-lb-open .abi7-lb-img { transform: scale(1); }
+.abi7-lb-loading .abi7-lb-img { opacity: 0.35; }
+.abi7-lb-error .abi7-lb-img { opacity: 0.1; }
+.abi7-lb-error .abi7-lb-stage::before { content: "Не удалось загрузить изображение"; position: absolute; color: #fca5a5; font-size: 14px; }
+
+.abi7-lb-caption { margin-top: 12px; color: #e5e7eb; font-size: 14px; text-align: center; }
+.abi7-lb-caption[hidden], .abi7-lb-btn[hidden] { display: none; }
+
+.abi7-lb-counter { position: absolute; top: 16px; left: 20px; color: #9ca3af; font-size: 13px; }
+
+.abi7-lb-btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.abi7-lb-btn:hover, .abi7-lb-btn:focus-visible { background: rgba(255, 255, 255, 0.28); outline: none; }
+.abi7-lb-prev { left: 12px; top: 50%; margin-top: -22px; }
+.abi7-lb-next { right: 12px; top: 50%; margin-top: -22px; }
+.abi7-lb-close { top: 10px; right: 12px; }
+
+@media (max-width: 600px) {
+  .abi7-lb-stage { padding: 56px 8px 40px; }
+  .abi7-lb-prev, .abi7-lb-next { top: auto; bottom: 8px; margin-top: 0; }
+  .abi7-lb-prev { left: 12px; }
+  .abi7-lb-next { right: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abi7-lb, .abi7-lb-img { transition: none; }
+}

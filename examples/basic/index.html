@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Basic</title>
+  <!-- Базовые стили ядра: один файл, все классы начинаются с .abi7- -->
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <!-- Оформление демо-страницы (не часть библиотеки) -->
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <!--
+    Контейнер грида. Он же скролл-контейнер, поэтому у него обязательно должна быть высота:
+    здесь она задана классом .demo-grid (height: 380px) в page.css.
+    Контейнер должен быть пустым — ядро добавит внутрь свой слой контента.
+  -->
+  <div id="gallery" class="demo-grid"></div>
+  <p class="hint" id="out">Кликните по карточке.</p>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/*!
+ * ABI7 Grid v1.0.0 — core styles
+ * (c) Alexander Momot. MIT License.
+ * Все селекторы начинаются с .abi7-*: никаких глобальных сбросов и конфликтов.
+ * Настройка через CSS custom properties на корневом элементе (см. ниже).
+ */
+
+/* ---- Корневой элемент (он же скролл-контейнер) ---- */
+.abi7-grid {
+  /* Публичные переменные темизации: */
+  --abi7-duration: 300ms;          /* задаётся опцией animation.duration */
+  --abi7-easing: ease;             /* задаётся опцией animation.easing */
+  --abi7-item-bg: #e5e7eb;         /* фон карточки */
+  --abi7-item-radius: 6px;         /* скругление карточки */
+  --abi7-caption-color: #fff;
+  --abi7-focus: #4c8bf5;
+  --abi7-drag-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: var(--abi7-height, 100%);   /* опция height → --abi7-height */
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  overflow-anchor: none;              /* Scroll Anchoring делает ядро, а не браузер */
+  scrollbar-gutter: stable;           /* скроллбар не меняет ширину контента → нет циклов resize */
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+}
+
+.abi7-grid:focus-visible {
+  outline: 2px solid var(--abi7-focus);
+  outline-offset: -2px;
+}
+
+.abi7-grid.abi7-axis-y { overflow-x: auto; overflow-y: auto; }
+.abi7-grid.abi7-axis-x { overflow-x: auto; overflow-y: hidden; scrollbar-gutter: auto; }
+
+/* ---- Контейнер контента: размеры выставляет ядро (геометрия layout) ---- */
+.abi7-container {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 1px;
+  width: 100%;
+}
+
+.abi7-axis-x > .abi7-container {
+  width: auto;
+  height: 100%;
+}
+
+/* ---- Элемент ---- */
+.abi7-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--abi7-item-bg);
+  border-radius: var(--abi7-item-radius);
+  contain: layout paint;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Режим virtualization.measure: высоту определяет содержимое, ядро её только измеряет. */
+.abi7-item.abi7-item-auto {
+  height: auto;
+  overflow: visible;
+  contain: layout;
+}
+
+/* ---- Стандартное содержимое карточки ---- */
+.abi7-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.abi7-media[hidden],
+.abi7-caption[hidden] { display: none; }
+
+.abi7-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 10px 8px;
+  overflow: hidden;
+  color: var(--abi7-caption-color);
+  font: 500 12px/1.3 system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.62));
+  pointer-events: none;
+}
+
+.abi7-media[hidden] + .abi7-caption {
+  position: static;
+  height: 100%;
+  padding: 10px;
+  color: inherit;
+  background: none;
+  white-space: normal;
+}
+
+/* ---- Анимация перестроений (класс ставится ядром только на время перестроения) ---- */
+.abi7-animating > .abi7-container > .abi7-item {
+  transition:
+    transform var(--abi7-duration) var(--abi7-easing),
+    width var(--abi7-duration) var(--abi7-easing),
+    height var(--abi7-duration) var(--abi7-easing);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abi7-animating > .abi7-container > .abi7-item { transition: none; }
+}
+
+/* ---- Drag & Drop ---- */
+.abi7-draggable .abi7-item { cursor: grab; }
+.abi7-drag-active,
+.abi7-drag-active .abi7-item { cursor: grabbing; }
+
+.abi7-item.abi7-dragging { opacity: 0.35; }
+
+/* «Призрак» живёт в document.body, поэтому не обрезается overflow контейнера. */
+.abi7-ghost-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+}
+
+.abi7-ghost-layer .abi7-ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.92;
+  box-shadow: var(--abi7-drag-shadow);
+  transition: none;
+  pointer-events: none;
+}

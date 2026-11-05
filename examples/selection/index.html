@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Selection plugin</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <!-- Стили плагина подключаются отдельно и только если плагин используется -->
+  <link rel="stylesheet" href="../../plugins/selection/selection.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <div class="toolbar">
+    <button id="all">Выделить все</button>
+    <button id="clear">Снять выделение</button>
+    <button id="list">Показать выделенные</button>
+    <span class="hint" style="margin:0">Клик — выбрать · Ctrl/Cmd+клик — добавить/убрать · Shift+клик — диапазон · Ctrl/Cmd+A · Esc</span>
+  </div>
+
+  <div id="gallery" class="demo-grid"></div>
+  <pre class="out" id="out">Ничего не выделено.</pre>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

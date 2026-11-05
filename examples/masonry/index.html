@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Masonry</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <!-- Панель управления: кнопки вызывают публичные методы грида -->
+  <div class="toolbar">
+    <button id="add">Add item</button>
+    <button id="remove">Remove item</button>
+    <button id="refresh">Refresh</button>
+    <button id="rebuild">Rebuild</button>
+    <label>gap <input id="gap" type="range" min="0" max="40" value="12"><output id="gapOut">12</output></label>
+    <label>minWidth <input id="minWidth" type="range" min="100" max="320" step="10" value="180"><output id="minWidthOut">180</output></label>
+    <label>maxColumns <input id="maxColumns" type="range" min="1" max="8" value="5"><output id="maxColumnsOut">5</output></label>
+  </div>
+
+  <div id="gallery" class="demo-grid tall"></div>
+  <div class="stats" id="stats">…</div>
+  <div class="log" id="log"></div>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

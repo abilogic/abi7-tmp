@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Lightbox plugin</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <link rel="stylesheet" href="../../plugins/lightbox/lightbox.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <div class="toolbar">
+    <button id="open5">Открыть фото №5</button>
+    <label><input id="loop" type="checkbox" checked> loop</label>
+    <span class="hint" style="margin:0">Клик по фото · ← → · Home/End · Esc · клик по фону · свайп на телефоне</span>
+  </div>
+
+  <div id="gallery" class="demo-grid"></div>
+  <div class="log" id="log">События lightbox появятся здесь.</div>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

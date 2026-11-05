@@ -1,0 +1,11 @@
+{
+  "name": "@abi7/lightbox",
+  "version": "1.0.0",
+  "description": "Lightbox plugin for ABI7 Grid",
+  "type": "module",
+  "main": "lightbox.js",
+  "style": "lightbox.css",
+  "files": ["lightbox.js", "lightbox.css", "README.md"],
+  "peerDependencies": { "abi7-grid": "^1.0.0" },
+  "license": "MIT"
+}

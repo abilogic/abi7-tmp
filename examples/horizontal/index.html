@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Horizontal layout plugin</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <div class="toolbar">
+    <label>height <input id="height" type="range" min="100" max="280" step="10" value="200"><output id="heightOut">200</output></label>
+    <label>gap <input id="gap" type="range" min="0" max="40" value="12"><output id="gapOut">12</output></label>
+    <label>scrollToIndex <input id="index" type="number" min="0" value="1500"></label>
+    <button id="go">Перейти</button>
+  </div>
+
+  <div id="strip" class="demo-grid strip"></div>
+  <div class="stats" id="stats">…</div>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

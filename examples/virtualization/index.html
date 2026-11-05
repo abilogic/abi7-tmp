@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Virtualization</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <div class="toolbar">
+    <span style="color:var(--muted)">Записей:</span>
+    <button data-size="1000">1 000</button>
+    <button data-size="5000">5 000</button>
+    <button data-size="10000">10 000</button>
+    <button data-size="50000">50 000</button>
+    <label>overscan <input id="overscan" type="range" min="0" max="1500" step="50" value="400"><output id="overscanOut">400</output></label>
+    <label><input id="adaptive" type="checkbox" checked> adaptive overscan</label>
+  </div>
+  <div class="toolbar">
+    <label>scrollToIndex <input id="index" type="number" min="0" value="2500"></label>
+    <button id="go">Перейти</button>
+    <button id="top">В начало</button>
+  </div>
+
+  <div id="gallery" class="demo-grid tall"></div>
+  <!-- Все числа ниже читаются из реального состояния грида и DOM, а не заданы заранее -->
+  <div class="stats" id="stats">…</div>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

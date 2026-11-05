@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Connected Grids plugin</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <link rel="stylesheet" href="../../plugins/connected-grids/connected-grids.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <p class="hint" style="margin:0 0 8px">Перетащите карточку из одного грида в другой (мышь или долгое нажатие на телефоне). Внутри грида перетаскивание меняет порядок.</p>
+  <div class="row">
+    <div class="col"><h4>Left — <span id="leftCount"></span></h4><div id="left" class="demo-grid"></div></div>
+    <div class="col"><h4>Right — <span id="rightCount"></span></h4><div id="right" class="demo-grid"></div></div>
+  </div>
+  <div class="toolbar" style="margin-top:10px"><button id="move">Программно: первая слева → вправо</button></div>
+  <div class="log" id="log">События переноса появятся здесь.</div>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+/* @abi7/connected-grids — подсветка целевого грида при перетаскивании */
+.abi7-connected-over {
+  outline: 2px dashed var(--abi7-connected-color, #4c8bf5);
+  outline-offset: -3px;
+  background-color: rgba(76, 139, 245, 0.07);
+}

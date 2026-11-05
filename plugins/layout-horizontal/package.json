@@ -1,0 +1,10 @@
+{
+  "name": "@abi7/layout-horizontal",
+  "version": "1.0.0",
+  "description": "Horizontal strip layout plugin for ABI7 Grid",
+  "type": "module",
+  "main": "horizontal.js",
+  "files": ["horizontal.js", "README.md"],
+  "peerDependencies": { "abi7-grid": "^1.0.0" },
+  "license": "MIT"
+}

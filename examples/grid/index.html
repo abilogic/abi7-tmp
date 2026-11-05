@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABI7 Grid — Grid layout</title>
+  <link rel="stylesheet" href="../../dist/abi7-grid.css">
+  <link rel="stylesheet" href="../shared/page.css">
+</head>
+<body>
+  <div class="toolbar">
+    <label>Колонки
+      <select id="columns">
+        <option value="0">авто (по minWidth)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4" selected>4</option>
+        <option value="6">6</option>
+      </select>
+    </label>
+    <label>aspectRatio
+      <select id="aspect">
+        <option value="1">1 : 1</option>
+        <option value="1.5" selected>3 : 2</option>
+        <option value="1.7778">16 : 9</option>
+        <option value="0.75">3 : 4</option>
+      </select>
+    </label>
+    <label>gap <input id="gap" type="range" min="0" max="40" value="12"><output id="gapOut">12</output></label>
+    <label>minWidth <input id="minWidth" type="range" min="80" max="300" step="10" value="140"><output id="minWidthOut">140</output></label>
+  </div>
+
+  <div id="gallery" class="demo-grid tall"></div>
+  <div class="stats" id="stats">…</div>
+
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>
